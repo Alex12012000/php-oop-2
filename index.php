@@ -7,15 +7,19 @@ require_once __DIR__ . "/PetGadget.php";
 require_once __DIR__ . "/User.php";
 require_once __DIR__ . "/RegisteredUser.php";
 require_once __DIR__ . "/StandardUser.php";
+require_once __DIR__ . "/CreditCard.php";
 
+// PRODUCTS
 $crocchette = new PetFood('Friskies', 2);
 $osso = new petToy('Osso di gomma', 5);
 $cuccia = new PetGadget('Cuccia', 5);
 
+// USER
 $marco = new RegisteredUser('Marco', 2);
 $luca = new StandardUser('Luca', 2);
 
-
+// CREDIT CARDS
+$postepay = new CreditCard(100);
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +34,18 @@ $luca = new StandardUser('Luca', 2);
 <body>
     
     <div class="container">
+        
+        <!-- PRODUCTS -->
         <div class="products">
             <div class="col">
+
+                <!-- PRODUCT IMG -->
                 <div class="p-img">
                     <img src="img/8fda869f1675612731599e30f906.jpeg" alt="crocchette">
                 </div>
                 <div class="card">
+
+                    <!-- INFO -->
                     <div class="info">
                         <?php echo $crocchette->productName ?>
                         <span class="price"><?php echo $crocchette->price ?>€</span>
@@ -71,10 +81,17 @@ $luca = new StandardUser('Luca', 2);
                 </div>
             </div>
         </div>
+        <!-- USER DETAIL -->
         <div class="user">
+            <!-- USER BALANCE -->
            <div class="balance">
-            Saldo: <?php echo $marco->balance ?>
+            Saldo: <?php echo $marco->balance ?>€
            </div>
+           <!-- CC BALANCE -->
+           <div class="balance">
+            Saldo cc: <?php echo $postepay->balance ?>€
+           </div>
+           <!-- ITEMS TO BUY -->
             <div class="item-tobuy">
                 <?php echo $marco->name ?> vuole comprare
                 <?php 
@@ -82,8 +99,9 @@ $luca = new StandardUser('Luca', 2);
                     echo $crocchette->productName;
                 ?>
             </div>
+            <!-- RESULT -->
             <div class="result">
-                Esito: <?php echo $marco->pay() ?>
+                Esito: <?php echo $marco->pay($postepay->balance) ?>
             </div>
         </div>
     </div>

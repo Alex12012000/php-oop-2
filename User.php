@@ -19,10 +19,10 @@
             return $this->selectedProduct;
         }
 
-        public function pay() {
+        public function pay($_ccBalance) {
             foreach($this->selectedProduct as $product) {
                 $product->price -= $product->price * $this->sconto / 100;
-                if($this->balance > $product->price) {
+                if($_ccBalance > $product->price) {
                     echo 'Comprato!';
                 } else {
                     die('Non hai abbastanza denaro, registrati per ottenere uno sconto fantastico!');
