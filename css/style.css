@@ -1,0 +1,61 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* COMMON */
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.products {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* card */
+
+.col {
+    background-color: rgb(255, 149, 0);
+    width: calc(100% / 3 - 30px);
+    color: white;
+    font-size: 22px;
+    border: 1px solid rgb(255, 149, 0);
+}
+
+
+.card {
+    padding: 30px;
+    text-align: center;
+}
+
+.info {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.price {
+    margin: 0 10px;
+}
+
+/* user */
+
+.balance, .item-tobuy, .result {
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+

@@ -12,10 +12,6 @@ class Product {
         $this->price = $_price;
     }
 
-    public function getData() {
-        return ucfirst($this->productName) . ' Prezzo: ' . $this->price . 'Eur';
-    }
-
 }
 
 ?>
