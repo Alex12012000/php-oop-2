@@ -25,7 +25,7 @@
                 if($_ccBalance > $product->price) {
                     echo 'Comprato!';
                 } else {
-                    die('Non hai abbastanza denaro, registrati per ottenere uno sconto fantastico!');
+                    throw new Exception($this->name . " non ha credito");
                 }
             }
         }

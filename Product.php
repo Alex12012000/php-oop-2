@@ -1,6 +1,10 @@
 <?php 
 
+require_once __DIR__ . '/BarCode.php';
 class Product {
+
+    use BarCode;
+
 
     public $productName;
 

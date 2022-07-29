@@ -14,12 +14,16 @@ $crocchette = new PetFood('Friskies', 2);
 $osso = new petToy('Osso di gomma', 5);
 $cuccia = new PetGadget('Cuccia', 5);
 
+// TRAIT
+$cuccia->barcode = "12gt323";
+var_dump($cuccia);
+
 // USER
 $marco = new RegisteredUser('Marco', 2);
 $luca = new StandardUser('Luca', 2);
 
 // CREDIT CARDS
-$postepay = new CreditCard(100);
+$postepay = new CreditCard(1);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ $postepay = new CreditCard(100);
 <body>
     
     <div class="container">
-        
+
         <!-- PRODUCTS -->
         <div class="products">
             <div class="col">
@@ -101,7 +105,17 @@ $postepay = new CreditCard(100);
             </div>
             <!-- RESULT -->
             <div class="result">
-                Esito: <?php echo $marco->pay($postepay->balance) ?>
+                Esito: <?php 
+                
+                    try {
+                        echo $marco->pay($postepay->balance);
+                    } catch (Exception $e) {
+                        error_log($e->getMessage());
+
+                        echo 'Credito non sufficente!';
+                    }
+
+                ?>
             </div>
         </div>
     </div>
